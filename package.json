@@ -2,7 +2,7 @@
   "name": "vscode-luma",
   "displayName": "Luma Language",
   "description": "Luma language support for Visual Studio Code",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "publisher": "TayaCrystals",
   "repository": {
     "type": "git",
@@ -74,6 +74,6 @@
     "eslint": "^9.39.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3",
-    "vsce": "^2.15.0"
+    "@vscode/vsce": "^2.15.0"
   }
 }
