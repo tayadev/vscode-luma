@@ -10,6 +10,7 @@ This extension provides syntax highlighting for the [Luma programming language](
 
 - **Keywords**: `let`, `var`, `fn`, `if`, `else`, `do`, `end`, `while`, `for`, `in`, `match`, `return`, `break`, `continue`, `await`
 - **Constants**: `true`, `false`, `null`, `Infinity`, `NaN`
+- **Built-in functions**: `print`, `import`, `cast`, `isInstanceOf`, `typeof`, `range`
 - **Comments**: Single-line (`--`) and multi-line (`--[[ ]]`)
 - **Strings**: With interpolation support (`${expression}`)
 - **Numbers**: Decimal, hexadecimal (`0xFF`), binary (`0b1010`), and scientific notation (`1.5e3`)
