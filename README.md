@@ -36,6 +36,13 @@ This extension does not contribute any settings at this time.
 
 None at this time.
 
+## Upcoming Features
+
+- Snippets for common Luma constructs
+- Linting and error checking
+- Code completion and IntelliSense
+- Debugging support
+
 ## Release Notes
 
 ### 0.0.1
