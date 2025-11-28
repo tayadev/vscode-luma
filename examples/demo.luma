@@ -1,0 +1,153 @@
+-- Example Luma program demonstrating language features
+
+--[[
+  Multi-line comment example
+  This shows various Luma syntax elements
+]]
+
+-- Variable declarations
+let name = "World"
+var counter = 0
+
+-- Constants
+let is_enabled = true
+let nothing = null
+let max_value = Infinity
+
+-- Numbers
+let decimal = 42
+let float_num = 3.14
+let scientific = 1.5e3
+let hex = 0xFF
+let binary = 0b1010
+
+-- String interpolation
+let greeting = "Hello, ${name}!"
+let message = "Count: ${counter + 1}"
+
+-- Function definition with type annotations
+let add = fn(a: Number, b: Number): Number do
+  return a + b
+end
+
+-- Fibonacci function
+let fib = fn(n: Number): Number do
+  if n <= 1 do
+    n
+  else do
+    fib(n - 1) + fib(n - 2)
+  end
+end
+
+-- Control flow: if-else
+let check_value = fn(x: Number): String do
+  if x > 0 do
+    "positive"
+  else if x < 0 do
+    "negative"
+  else do
+    "zero"
+  end
+end
+
+-- While loop
+let count_up = fn(max: Number): Number do
+  var sum = 0
+  var i = 0
+  while i < max do
+    sum = sum + i
+    i = i + 1
+  end
+  sum
+end
+
+-- Do-while loop
+let count_once = fn() do
+  var x = 0
+  do
+    x = x + 1
+  while x < 1 end
+  x
+end
+
+-- For loop with arrays
+let numbers = [1, 2, 3, 4, 5]
+var total = 0
+for n in numbers do
+  total = total + n
+end
+
+-- Match expression
+let describe = fn(code: Number): String do
+  match code do
+    200 do "success" end
+    404 do "not found" end
+    500 do "server error" end
+    _ do "unknown" end
+  end
+end
+
+-- Tables
+let person = {
+  name = "Alice",
+  age = 30,
+  email = "alice@example.com"
+}
+
+-- Type definition with inheritance
+let Animal = {
+  name = String,
+  species = String
+}
+
+let Dog = {
+  __parent = Animal,
+  breed = String
+}
+
+-- Operator overloading
+let Vector2 = {
+  x = Number,
+  y = Number,
+
+  __add = fn(a: Vector2, b: Vector2): Vector2 do
+    return cast(Vector2, { x = a.x + b.x, y = a.y + b.y })
+  end,
+
+  __eq = fn(a: Vector2, b: Vector2): Boolean do
+    return a.x == b.x && a.y == b.y
+  end
+}
+
+-- Type casting
+let buddy = cast(Dog, {
+  name = "Buddy",
+  species = "Canis familiaris",
+  breed = "Golden Retriever"
+})
+
+-- Destructuring
+let [first, second, ...rest] = [1, 2, 3, 4, 5]
+let { name: userName, age: userAge } = person
+
+-- Result type handling
+let divide = fn(a: Number, b: Number): Result(Number, String) do
+  if b == 0 do
+    return { ok = null, err = "Division by zero" }
+  end
+  return { ok = a / b, err = null }
+end
+
+-- Async/await example
+let fetchData = fn(url: String): Promise(String) do
+  let response = await http.get(url)
+  return response.body
+end
+
+-- Module import
+let utils = import("./utils.luma")
+
+-- Print results
+print("Fibonacci(10) =", fib(10))
+print("Sum 1-10 =", count_up(10))
+print("Check -5:", check_value(-5))

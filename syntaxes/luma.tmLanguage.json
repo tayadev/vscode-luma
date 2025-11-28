@@ -1,0 +1,216 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Luma",
+  "scopeName": "source.luma",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#constants" },
+    { "include": "#operators" },
+    { "include": "#functions" },
+    { "include": "#types" },
+    { "include": "#variables" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.luma",
+          "begin": "--\\[\\[",
+          "end": "\\]\\]",
+          "captures": {
+            "0": { "name": "punctuation.definition.comment.luma" }
+          }
+        },
+        {
+          "name": "comment.line.double-dash.luma",
+          "match": "--.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.luma",
+          "begin": "\"",
+          "end": "\"",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.luma" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.luma" }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.luma",
+              "match": "\\\\(?:[\"\\\\nrt]|\\$\\{)"
+            },
+            {
+              "name": "meta.interpolation.luma",
+              "begin": "\\$\\{",
+              "end": "\\}",
+              "beginCaptures": {
+                "0": { "name": "punctuation.definition.interpolation.begin.luma" }
+              },
+              "endCaptures": {
+                "0": { "name": "punctuation.definition.interpolation.end.luma" }
+              },
+              "patterns": [
+                { "include": "source.luma" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hexadecimal.luma",
+          "match": "\\b0x[0-9a-fA-F]+\\b"
+        },
+        {
+          "name": "constant.numeric.binary.luma",
+          "match": "\\b0b[01]+\\b"
+        },
+        {
+          "name": "constant.numeric.float.luma",
+          "match": "\\b\\d+\\.\\d+(?:[eE][+-]?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.float.luma",
+          "match": "\\.\\d+(?:[eE][+-]?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.float.luma",
+          "match": "\\b\\d+[eE][+-]?\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.luma",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.luma",
+          "match": "\\b(if|else|do|end|while|for|in|match|break|continue|return)\\b"
+        },
+        {
+          "name": "keyword.declaration.luma",
+          "match": "\\b(let|var|fn)\\b"
+        },
+        {
+          "name": "keyword.operator.async.luma",
+          "match": "\\b(await)\\b"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.true.luma",
+          "match": "\\btrue\\b"
+        },
+        {
+          "name": "constant.language.boolean.false.luma",
+          "match": "\\bfalse\\b"
+        },
+        {
+          "name": "constant.language.null.luma",
+          "match": "\\bnull\\b"
+        },
+        {
+          "name": "constant.language.infinity.luma",
+          "match": "\\bInfinity\\b"
+        },
+        {
+          "name": "constant.language.nan.luma",
+          "match": "\\bNaN\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.luma",
+          "match": "==|!=|<=|>=|<|>"
+        },
+        {
+          "name": "keyword.operator.logical.luma",
+          "match": "&&|\\|\\||!"
+        },
+        {
+          "name": "keyword.operator.arithmetic.luma",
+          "match": "\\+|-|\\*|/|%"
+        },
+        {
+          "name": "keyword.operator.assignment.luma",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.spread.luma",
+          "match": "\\.\\.\\."
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "meta.function.luma",
+          "match": "\\b(fn)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+          "captures": {
+            "1": { "name": "keyword.declaration.function.luma" },
+            "2": { "name": "entity.name.function.luma" }
+          }
+        },
+        {
+          "name": "meta.function-call.luma",
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+          "captures": {
+            "1": { "name": "entity.name.function.luma" }
+          }
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.primitive.luma",
+          "match": "\\b(Number|Boolean|String|Null|Any)\\b"
+        },
+        {
+          "name": "support.type.collection.luma",
+          "match": "\\b(List|Table)\\b"
+        },
+        {
+          "name": "support.type.result.luma",
+          "match": "\\b(Result|Option|Promise)\\b"
+        },
+        {
+          "name": "entity.name.type.luma",
+          "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.special.luma",
+          "match": "\\b(__parent|__add|__sub|__mul|__div|__mod|__neg|__eq|__lt|__le|__gt|__ge|__into|__gc)\\b"
+        },
+        {
+          "name": "variable.language.this.luma",
+          "match": "\\bself\\b"
+        },
+        {
+          "name": "variable.other.wildcard.luma",
+          "match": "\\b_\\b"
+        }
+      ]
+    }
+  }
+}
