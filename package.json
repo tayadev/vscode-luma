@@ -1,79 +1,81 @@
 {
-  "name": "vscode-luma",
-  "displayName": "Luma Language",
-  "description": "Luma language support for Visual Studio Code",
-  "version": "0.1.2",
-  "publisher": "TayaCrystals",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tayadev/vscode-luma"
-  },
-  "engines": {
-    "vscode": "^1.106.1"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "activationEvents": [
-    "onLanguage:luma"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "languages": [
-      {
-        "id": "luma",
-        "aliases": ["Luma", "luma"],
-        "extensions": [".luma"],
-        "configuration": "./language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "luma",
-        "scopeName": "source.luma",
-        "path": "./syntaxes/luma.tmLanguage.json"
-      }
-    ],
-    "commands": [
-      {
-        "command": "luma.helloWorld",
-        "title": "Hello World"
-      }
-    ],
-    "configuration": {
-      "type": "object",
-      "title": "Luma",
-      "properties": {
-        "luma.serverPath": {
-          "type": "string",
-          "default": "",
-          "description": "Path to the Luma language server executable. If empty, defaults to ~/.luma/bin/luma (or ~/.luma/bin/luma.exe on Windows)."
-        }
-      }
-    }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test",
-    "package": "vsce package",
-    "publish": "vsce publish"
-  },
-  "dependencies": {
-    "vscode-languageclient": "^9.0.1"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "22.x",
-    "@types/vscode": "^1.106.1",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2",
-    "eslint": "^9.39.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.3",
-    "@vscode/vsce": "^2.15.0"
-  }
+	"name": "vscode-luma",
+	"displayName": "Luma Language",
+	"description": "Luma language support for Visual Studio Code",
+	"version": "0.1.2",
+	"publisher": "TayaCrystals",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tayadev/vscode-luma"
+	},
+	"engines": {
+		"vscode": "^1.106.1"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "luma",
+				"aliases": [
+					"Luma",
+					"luma"
+				],
+				"extensions": [
+					".luma"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "luma",
+				"scopeName": "source.luma",
+				"path": "./syntaxes/luma.tmLanguage.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "luma.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Luma",
+			"properties": {
+				"luma.serverPath": {
+					"type": "string",
+					"default": "",
+					"description": "Path to the Luma language server executable. If empty, defaults to ~/.luma/bin/luma (or ~/.luma/bin/luma.exe on Windows)."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src",
+		"test": "vscode-test",
+		"package": "vsce package",
+		"publish": "vsce publish"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^9.0.1"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "22.x",
+		"@types/vscode": "^1.106.1",
+		"@vscode/test-cli": "^0.0.12",
+		"@vscode/test-electron": "^2.5.2",
+		"eslint": "^9.39.1",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.46.3",
+		"@vscode/vsce": "^2.15.0"
+	}
 }
