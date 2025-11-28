@@ -1,71 +1,54 @@
-# luma README
+# Luma Language Support for VS Code
 
-This is the README for your extension "luma". After writing up a brief description, we recommend including the following sections.
+Provides syntax highlighting and language support for the [Luma](https://github.com/tayadev/luma) programming language.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Syntax Highlighting
 
-For example if there is an image subfolder under your extension project workspace:
+Full syntax highlighting support for Luma source files (`.luma`):
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Keywords**: `let`, `var`, `fn`, `if`, `else`, `for`, `while`, `do`, `end`, `match`, `return`, `break`, `continue`, `in`, `await`, `import`
+- **Comments**: Single-line (`--`) and multi-line (`--[[ ]]`)
+- **Strings**: Double-quoted strings with interpolation (`${expression}`)
+- **Numbers**: Decimal, hexadecimal (`0xFF`), binary (`0b1010`), and scientific notation (`1.5e3`)
+- **Constants**: `true`, `false`, `null`, `Infinity`, `NaN`
+- **Types**: Built-in types like `Number`, `Boolean`, `String`, `List`, `Table`, `Result`, `Option`, `Promise`, and custom types
+- **Operators**: Arithmetic, comparison, logical, and assignment operators
+- **Functions**: Function definitions and calls
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Language Configuration
+
+- Comment toggling (line and block comments)
+- Bracket matching and auto-closing
+- Auto-indentation
+- Code folding for blocks (`if`/`end`, `fn`/`end`, etc.)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+No additional requirements. Just install and open a `.luma` file.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension does not contribute any settings at this time.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+None at this time.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release:
+- Syntax highlighting for Luma language
+- Language configuration for comments, brackets, and indentation
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
 ## For more information
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+- [Luma Language Repository](https://github.com/tayadev/luma)
+- [Luma Language Specification](https://github.com/tayadev/luma/blob/main/SPEC.md)
 
 **Enjoy!**
