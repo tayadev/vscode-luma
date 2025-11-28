@@ -8,6 +8,7 @@
     { "include": "#numbers" },
     { "include": "#keywords" },
     { "include": "#constants" },
+    { "include": "#builtins" },
     { "include": "#operators" },
     { "include": "#functions" },
     { "include": "#types" },
@@ -130,6 +131,14 @@
         {
           "name": "constant.language.nan.luma",
           "match": "\\bNaN\\b"
+        }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.luma",
+          "match": "\\b(print|import|cast|isInstanceOf|typeof|range)\\b"
         }
       ]
     },
