@@ -26,7 +26,11 @@
 				"extensions": [
 					".luma"
 				],
-				"configuration": "./language-configuration.json"
+				"configuration": "./language-configuration.json",
+        "icon": {
+          "dark": "./icons/luma.svg",
+          "light": "./icons/luma.svg"
+        }
 			}
 		],
 		"grammars": [
