@@ -89,7 +89,7 @@
         },
         {
           "name": "constant.numeric.integer.luma",
-          "match": "\\b-?\\d+\\b"
+          "match": "\\b\\d+\\b"
         }
       ]
     },
